@@ -1,4 +1,5 @@
 const express = require("express");
+var cors = require("cors");
 
 const path = require("path");
 // Type 3: Persistent datastore with automatic loading
@@ -9,6 +10,7 @@ db.loadDatabase();
 
 const app = express();
 
+app.use(cors());
 // Send files from the public directory
 app.use(express.static(path.resolve(__dirname, "public")));
 
